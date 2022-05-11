@@ -1,0 +1,840 @@
+/*
+Theme Name: Custom tema
+Author: Natasa Bogdanovic
+Author URI: https://websitesworkshop.com
+Description: Sass WordPress theme
+Version: 1.0
+*/
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Work+Sans:wght@100;200;300;400;500&display=swap");
+/********************************
+variables
+********************************/
+/********************************
+mixins
+********************************/
+/********************************
+animation
+********************************/
+@-webkit-keyframes leftToRight {
+  0% {
+    -webkit-transform: translateX(-300px);
+            transform: translateX(-300px);
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+@keyframes leftToRight {
+  0% {
+    -webkit-transform: translateX(-300px);
+            transform: translateX(-300px);
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+
+@-webkit-keyframes rightToLeft {
+  from {
+    -webkit-transform: translateX(300px);
+            transform: translateX(300px);
+  }
+  to {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+
+@keyframes rightToLeft {
+  from {
+    -webkit-transform: translateX(300px);
+            transform: translateX(300px);
+  }
+  to {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+
+/********************************
+basic
+********************************/
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.flex, .gifovi-articles, .blog-articles, .numbers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+/********************************
+Typography
+********************************/
+body {
+  font-family: "Lato", sans-serif;
+  font-size: 1.6rem;
+  color: #212529;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Work Sans", sans-serif;
+}
+
+h1 {
+  font-size: 5.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 35px;
+  -webkit-animation-name: leftToRight;
+          animation-name: leftToRight;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+
+h2 {
+  font-size: 3.6rem;
+  font-weight: 300;
+  line-height: 1.2em;
+  margin-bottom: 30px;
+}
+
+h4 {
+  font-size: 2.4rem;
+  line-height: 1.5em;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+h6 {
+  font-size: 1.6rem;
+  line-height: 1.5em;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+b {
+  font-weight: 500;
+}
+
+main {
+  margin: 6rem 25rem;
+  -webkit-box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1024px) {
+  main {
+    margin: 0;
+  }
+}
+
+body {
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(253, 126, 20, 0.9)), to(rgba(220, 53, 69, 0.9))), url(img/bg.jpg);
+  background-image: linear-gradient(to right, rgba(253, 126, 20, 0.9), rgba(220, 53, 69, 0.9)), url(img/bg.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/*****************************
+header
+******************************/
+header {
+  background: -webkit-gradient(linear, right top, left top, from(rgba(220, 53, 69, 0.1)), to(rgba(255, 255, 255, 0.5)));
+  background: linear-gradient(to left, rgba(220, 53, 69, 0.1), rgba(255, 255, 255, 0.5));
+}
+
+header nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header nav .logo {
+  font-size: 3rem;
+}
+
+header nav .logo i {
+  color: #fff;
+  font-weight: 900;
+}
+
+header nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header nav ul li {
+  margin-left: 20px;
+}
+
+header nav ul li a {
+  color: #fff;
+  font-weight: 100;
+}
+
+/*****************************
+hero
+******************************/
+.hero {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.2)), to(rgba(255, 255, 255, 0.2))), url(img/hero-2.jpg);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url(img/hero-2.jpg);
+  background-position: bottom;
+  background-size: cover;
+  height: 85vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.hero p {
+  margin-bottom: 100px;
+  -webkit-animation-name: rightToLeft;
+          animation-name: rightToLeft;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+
+/*****************************
+gifovi
+******************************/
+.gifovi {
+  padding: 6rem 2rem;
+  text-align: center;
+  background-color: #fff;
+}
+
+.gifovi-articles article {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 30%;
+          flex: 0 0 30%;
+}
+
+.gifovi-articles article img {
+  width: 50%;
+}
+
+.gifovi-articles article button {
+  margin-top: 10px;
+  padding: 10px 0;
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background-color: #fd7e14;
+  color: #fff;
+  cursor: pointer;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+.gifovi-articles article button:hover {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+}
+
+.gifovi-articles article:nth-child(2) button {
+  margin-top: 10px;
+  padding: 10px 0;
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background-color: #17a2b8;
+  color: #fff;
+  cursor: pointer;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+.gifovi-articles article:nth-child(2) button:hover {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+}
+
+.gifovi-articles article:nth-child(3) button {
+  margin-top: 10px;
+  padding: 10px 0;
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background-color: #dc3545;
+  color: #fff;
+  cursor: pointer;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+.gifovi-articles article:nth-child(3) button:hover {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+}
+
+/*****************************
+blog
+******************************/
+.blog {
+  padding: 6rem 2rem;
+  text-align: center;
+  background-color: #fff;
+}
+
+.blog h2 a {
+  color: #17a2b8;
+}
+
+.blog-articles {
+  margin-top: 30px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.blog-articles article {
+  margin-top: 20px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 30%;
+          flex: 0 0 30%;
+}
+
+@media (max-width: 768px) {
+  .blog-articles article {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+  }
+}
+
+.blog-articles article .slika {
+  position: relative;
+}
+
+.blog-articles article .slika img {
+  width: 100%;
+}
+
+.blog-articles article .slika .kategorija {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #dc3545;
+  padding: 15px;
+  color: #fff;
+  border-radius: 15px 0 15px 0;
+}
+
+.blog-articles article .slika .kategorija a {
+  color: #fff;
+}
+
+.blog-articles article .tekst {
+  text-align: left;
+}
+
+.blog-articles article .tekst button {
+  margin-top: 10px;
+  padding: 10px 0;
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background-color: #fd7e14;
+  color: #fff;
+  cursor: pointer;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+.blog-articles article .tekst button:hover {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+}
+
+.blog-articles article .tekst button a {
+  color: #fff;
+}
+
+.blog-articles article .tekst h6 a {
+  color: #17a2b8;
+  text-transform: lowercase;
+}
+
+.blog-articles article .tekst .author-single a::before {
+  content: "Author: ";
+  text-transform: uppercase;
+  color: #212529;
+}
+
+.blog-articles article .tekst .kategorija-single a::before {
+  content: "Category: ";
+  text-transform: uppercase;
+  color: #212529;
+}
+
+.blog-articles article:nth-child(2n) button {
+  background-color: #17a2b8;
+}
+
+.blog-articles article:nth-child(2n-1) button {
+  background-color: #dc3545;
+}
+
+.blog-articles .single-post {
+  -webkit-box-flex: 0 !important;
+      -ms-flex: 0 0 80% !important;
+          flex: 0 0 80% !important;
+  margin: auto !important;
+  text-align: center;
+}
+
+.blog-articles .single-post .slika img {
+  width: 80% !important;
+  border-radius: 50px !important;
+}
+
+.postMatch {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+/*****************************
+numbers
+******************************/
+.numbers {
+  padding: 6rem 2rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  color: #fff;
+  text-align: center;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(220, 53, 69, 0.1)), to(rgba(255, 255, 255, 0.5)));
+  background: linear-gradient(to right, rgba(220, 53, 69, 0.1), rgba(255, 255, 255, 0.5));
+}
+
+.numbers article {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 20%;
+          flex: 0 0 20%;
+}
+
+.numbers article:nth-child(2n) {
+  color: #000000;
+}
+
+.numbers article:nth-child(2n):hover {
+  color: #212529;
+}
+
+.numbers article:nth-child(2n-1) {
+  color: #212529;
+}
+
+.numbers article:nth-child(2n-1):hover {
+  color: #000000;
+}
+
+.numbers article i {
+  font-size: 3rem;
+}
+
+.numbers article p {
+  font-size: 5rem;
+  font-weight: 600;
+  margin: 15px 0;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.numbers article p:hover {
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+}
+
+@media (max-width: 360px) {
+  .numbers article {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+  }
+}
+
+/*****************************
+brand
+******************************/
+.brand {
+  padding: 6rem 2rem;
+  text-align: center;
+  background-color: #fff;
+}
+
+.brand-articles {
+  margin-top: 50px;
+}
+
+.brand-articles article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.brand-articles article .text {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 40%;
+          flex: 0 0 40%;
+  text-align: left;
+}
+
+@media (max-width: 360px) {
+  .brand-articles article .text {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+    text-align: center;
+  }
+}
+
+.brand-articles article .text i {
+  font-size: 3rem;
+  margin-bottom: 30px;
+}
+
+.brand-articles article .slika {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 40%;
+          flex: 0 0 40%;
+}
+
+@media (max-width: 360px) {
+  .brand-articles article .slika {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+  }
+}
+
+.brand-articles article .slika img {
+  width: 70%;
+}
+
+.brand-articles article:nth-child(even) {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.brand-articles article:last-child .slika img {
+  width: 50%;
+}
+
+/*****************************
+needs
+******************************/
+.needs {
+  padding: 6rem 2rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+.needs-articles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.needs-articles article {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 30%;
+          flex: 0 0 30%;
+  margin-bottom: 30px;
+}
+
+.needs-articles article i {
+  font-size: 5rem;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+.needs-articles article i:hover {
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+}
+
+/*****************************
+contact
+******************************/
+.contact h2 {
+  text-align: center;
+  padding: 6rem 2rem;
+  color: #212529;
+  font-weight: 600;
+}
+
+.contact .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contact .row .input-form {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+}
+
+@media (max-width: 768px) {
+  .contact .row .input-form {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 80%;
+            flex: 0 0 80%;
+  }
+}
+
+.contact .row .input-form .wpforms-field-label {
+  color: #212529;
+}
+
+.contact .row .input-form .wpforms-submit-container .wpforms-submit {
+  margin-top: 10px;
+  padding: 10px 0;
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background-color: #dc3545;
+  color: #fff;
+  cursor: pointer;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+  background: -webkit-gradient(linear, right top, left top, from(rgba(220, 53, 69, 0.1)), to(rgba(255, 255, 255, 0.5))) !important;
+  background: linear-gradient(to left, rgba(220, 53, 69, 0.1), rgba(255, 255, 255, 0.5)) !important;
+}
+
+.contact .row .input-form .wpforms-submit-container .wpforms-submit:hover {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+}
+
+.contact .row .company {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 30%;
+          flex: 0 0 30%;
+  margin-bottom: 45px;
+}
+
+@media (max-width: 768px) {
+  .contact .row .company {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 80%;
+            flex: 0 0 80%;
+    margin-left: 50px;
+  }
+}
+
+.contact .row .company img {
+  width: 35%;
+}
+
+/*****************************
+404
+******************************/
+.info {
+  text-align: center;
+  padding: 6rem 2rem;
+  height: 70vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.info h2 {
+  color: #212529;
+  font-weight: 600;
+}
+
+.info .pretraga {
+  margin: 25px 0;
+}
+
+.info .pretraga label {
+  font-size: 1.8rem;
+}
+
+.info .pretraga .inputSearch {
+  padding: 5px 20px;
+  border: none;
+}
+
+.info .pretraga .inputSearch::-webkit-input-placeholder {
+  font-size: 1.2rem;
+}
+
+.info .pretraga .inputSearch:-ms-input-placeholder {
+  font-size: 1.2rem;
+}
+
+.info .pretraga .inputSearch::-ms-input-placeholder {
+  font-size: 1.2rem;
+}
+
+.info .pretraga .inputSearch::placeholder {
+  font-size: 1.2rem;
+}
+
+.info .pretraga .searchBtn {
+  margin-top: 10px;
+  padding: 10px 0;
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background-color: #fd7e14;
+  color: #fff;
+  cursor: pointer;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+  background: -webkit-gradient(linear, right top, left top, from(rgba(220, 53, 69, 0.1)), to(rgba(255, 255, 255, 0.5))) !important;
+  background: linear-gradient(to left, rgba(220, 53, 69, 0.1), rgba(255, 255, 255, 0.5)) !important;
+}
+
+.info .pretraga .searchBtn:hover {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+}
+
+/*****************************
+footer
+******************************/
+footer {
+  padding: 6rem 2rem;
+  background: -webkit-gradient(linear, right top, left top, from(rgba(220, 53, 69, 0.1)), to(rgba(255, 255, 255, 0.5)));
+  background: linear-gradient(to left, rgba(220, 53, 69, 0.1), rgba(255, 255, 255, 0.5));
+  color: #212529;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer article {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 30%;
+          flex: 0 0 30%;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  footer article {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+    margin-bottom: 20px;
+  }
+}
+
+footer article h4 {
+  font-weight: 600;
+}
+
+footer article i {
+  font-size: 10rem;
+}
+
+.bottom-bar {
+  background: -webkit-gradient(linear, left top, right top, from(rgba(220, 53, 69, 0.1)), to(rgba(255, 255, 255, 0.5)));
+  background: linear-gradient(to right, rgba(220, 53, 69, 0.1), rgba(255, 255, 255, 0.5));
+  text-align: center;
+  color: #fff;
+}
+/*# sourceMappingURL=style.css.map */

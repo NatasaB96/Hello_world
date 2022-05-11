@@ -1,0 +1,610 @@
+/*
+Theme Name: Custom tema
+Author: Natasa Bogdanovic
+Author URI: https://websitesworkshop.com
+Description: Sass WordPress theme
+Version: 1.0
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Work+Sans:wght@100;200;300;400;500&display=swap");
+
+/********************************
+variables
+********************************/
+$primary: #313131;
+$lightGray: #f8f9fa;
+$lightgray: #d3d3d3;
+$text: #212529;
+$white: #fff;
+$black: #000000;
+
+$green: #17a2b8;
+$orange: #fd7e14;
+$red: #dc3545;
+
+$fontSize: 16px;
+$fontFamilyText: "Lato", sans-serif;
+$fontFamilyHeadings: "Work Sans", sans-serif;
+
+$transition: 0.5s ease;
+$transform: translateY(-10px);
+
+$padding: 6rem 2rem;
+/********************************
+mixins
+********************************/
+
+@mixin dugme($bgcolor){
+  margin-top: 10px;
+  padding: 10px 0;
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background-color: $bgcolor;
+  color: $white;
+  cursor: pointer;
+  transition: $transition;
+  &:hover{
+      transform: $transform;
+  }
+}
+
+/********************************
+animation
+********************************/
+@keyframes leftToRight {
+  0% {
+    transform: translateX(-300px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes rightToLeft {
+  from {
+    transform: translateX(300px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+
+/********************************
+basic
+********************************/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+/********************************
+Typography
+********************************/
+
+body {
+  font-family: $fontFamilyText;
+  font-size: 1.6rem;
+  color: $text;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $fontFamilyHeadings;
+}
+
+h1 {
+  font-size: 5.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 35px;
+  animation-name: leftToRight;
+  animation-duration: 2s;
+}
+
+h2 {
+  font-size: 3.6rem;
+  font-weight: 300;
+  line-height: 1.2em;
+  margin-bottom: 30px;
+}
+
+h4 {
+  font-size: 2.4rem;
+  line-height: 1.5em;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+h6 {
+  font-size: 1.6rem;
+  line-height: 1.5em;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+b {
+  font-weight: 500;
+}
+
+main {
+  margin: 6rem 25rem;
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.1);
+  @media (max-width: 1024px){
+    margin: 0;
+}
+}
+
+body {
+  background-image: linear-gradient(
+      to right,
+      rgba($orange, 0.9),
+      rgba($red, 0.9)
+    ),
+    url(img/bg.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/*****************************
+header
+******************************/
+header {
+  background:linear-gradient(
+    to left,
+    rgba($red, 0.1),
+    rgba($white, 0.5),
+  );
+  nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    align-items: center;
+    .logo {
+      font-size: 3rem;
+      i{
+        color: $white;
+        font-weight: 900;
+      }
+    }
+    ul {
+      display: flex;
+      li {
+        margin-left: 20px;
+        a {
+          color: $white;
+          font-weight: 100;
+        }
+      }
+    }
+  }
+}
+
+/*****************************
+hero
+******************************/
+.hero {
+  background-image: linear-gradient(rgba($white, 0.2), rgba($white, 0.2)),
+  url(img/hero-2.jpg);
+  background-position: bottom;
+  background-size: cover;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  p {
+    margin-bottom: 100px;
+    animation-name: rightToLeft;
+    animation-duration: 2s;
+  }
+}
+
+
+/*****************************
+gifovi
+******************************/
+.gifovi {
+  padding: $padding;
+  text-align: center;
+  background-color: $white;
+  &-articles {
+    @extend .flex;
+    article {
+      flex: 0 0 30%;
+      img {
+        width: 50%;
+      }
+      button {
+        @include dugme($orange);
+      }
+      &:nth-child(2) {
+        button {
+          @include dugme($green);
+        }
+      }
+      &:nth-child(3) {
+        button {
+          @include dugme($red);
+        }
+      }
+    }
+  }
+}
+
+
+
+/*****************************
+blog
+******************************/
+.blog {
+  padding: $padding;
+  text-align: center;
+  background-color: $white;
+  h2{
+    a{
+      color: $green;
+    }
+  }
+  &-articles {
+    margin-top: 30px;
+    @extend .flex;
+    flex-wrap: wrap;
+    article {
+      margin-top: 20px;
+      flex: 0 0 30%;
+      @media (max-width: 768px){
+        flex: 0 0 100%;
+      }
+      .slika {
+        position: relative;
+        img {
+          width: 100%;
+        }
+        .kategorija {
+          position: absolute;
+          top: 0;
+          right: 0;
+          background-color: $red;
+          padding: 15px;
+          color: $white;
+          border-radius: 15px 0 15px 0;
+          a{
+            color: $white;
+          }
+        }
+      }
+      .tekst {
+        text-align: left;
+        button {
+            @include dugme($orange); 
+          a{
+            color:$white;
+          }
+        }
+        h6{
+         a{
+           color: $green;
+           text-transform: lowercase;
+         }
+        }
+        .author-single{
+          a::before{
+            content: "Author: ";
+            text-transform: uppercase;
+            color: $text;
+          }
+        }
+        .kategorija-single{
+          a::before{
+            content: "Category: ";
+            text-transform: uppercase;
+            color: $text;
+          }
+        }
+      }
+    }
+    article:nth-child(2n){
+      button {
+          background-color: $green;
+        }
+    }
+    article:nth-child(2n-1){
+        button {
+            background-color: $red;
+          }
+    }
+    .single-post{
+      flex: 0 0 80% !important;
+      margin: auto !important;
+      text-align: center;
+      .slika{
+        img{
+          width: 80% !important;
+          border-radius: 50px !important
+        }
+      }
+     }
+  }
+}
+.postMatch{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*****************************
+numbers
+******************************/
+.numbers {
+  padding: $padding;
+  @extend .flex;
+  flex-wrap: wrap;
+  color: $white;
+  text-align: center;
+  background:linear-gradient(
+    to right,
+    rgba($red, 0.1),
+    rgba($white, 0.5),
+  );
+  article {
+    flex: 0 0 20%;
+      &:nth-child(2n){
+      color: $black;
+        &:hover{
+          color: $text;
+        }
+      }
+      &:nth-child(2n-1){
+        color: $text;
+        &:hover{
+          color: $black;
+        }
+      }
+    i {
+      font-size: 3rem;
+    }
+    p {
+      font-size: 5rem;
+      font-weight: 600;
+      margin: 15px 0;
+      transition: $transition;
+      cursor: pointer;
+      &:hover{
+        transform: scale(1.3);
+      }
+    }
+    @media (max-width: 360px){
+      flex: 0 0 100%;
+  }
+  }
+}
+
+/*****************************
+brand
+******************************/
+.brand{
+  padding: $padding;
+  text-align: center;
+  background-color: $white;
+  &-articles{
+      margin-top: 50px;
+      article{
+          display: flex;
+          justify-content: space-around;
+          flex-wrap:wrap;
+          .text{
+              flex: 0 0 40%;
+              text-align: left;
+              @media (max-width: 360px){
+                  flex: 0 0 100%;
+                  text-align:center;
+              }
+              i{
+                  font-size: 3rem;
+                  margin-bottom: 30px;
+              }
+          }
+          .slika{
+              flex: 0 0 40%;
+              @media (max-width: 360px){
+                  flex: 0 0 100%;
+              }
+              img{
+                  width: 70%;
+              }
+          }
+      }
+      article:nth-child(even){
+          flex-direction: row-reverse;
+      }
+      article:last-child{
+          .slika{
+              img{
+                  width: 50%;
+              }
+          }
+      }
+  }
+}
+
+/*****************************
+needs
+******************************/
+.needs {
+  padding: $padding;
+  background-color: $white;
+  text-align: center;
+  &-articles {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    article {
+      flex: 0 0 30%;
+      margin-bottom: 30px;
+      i{
+        font-size: 5rem;
+        transition: $transition;
+        &:hover{
+          transform: scale(1.3);
+        }
+      }
+    }
+  }
+}
+
+/*****************************
+contact
+******************************/
+.contact{
+  h2{
+    text-align: center;
+    padding: $padding;
+    color: $text;
+    font-weight: 600;
+  }
+  .row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    .input-form{
+      flex: 0 0 50%;
+      
+      @media (max-width: 768px){
+        flex: 0 0 80%;
+      } 
+      .wpforms-field-label{
+        color: $text;
+      }
+      .wpforms-submit-container{
+        .wpforms-submit{
+          @include dugme($red);
+          background: linear-gradient(
+            to left,
+            rgba($red, 0.1),
+            rgba($white, 0.5)) !important;
+        }
+      }
+    }
+    .company{
+      flex: 0 0 30%;
+      margin-bottom: 45px;
+      @media (max-width: 768px){
+        flex: 0 0 80%;
+        margin-left: 50px;
+      } 
+      img{
+        width: 35%;
+      }
+    }
+  }
+}
+
+/*****************************
+404
+******************************/
+.info{
+  text-align: center;
+  padding: $padding;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h2{
+    color: $text;
+    font-weight: 600;
+  }
+  .pretraga{
+    margin: 25px 0;
+    label{
+      font-size: 1.8rem;
+    }
+    .inputSearch{
+      padding: 5px 20px;
+      border: none;
+      &::placeholder{
+        font-size: 1.2rem;
+      }
+    }
+    .searchBtn{
+      @include dugme($orange);
+      background: linear-gradient(
+            to left,
+            rgba($red, 0.1),
+            rgba($white, 0.5)) !important;
+    }
+  }
+}
+
+ 
+/*****************************
+footer
+******************************/
+footer{
+  padding: $padding;
+  background:linear-gradient(
+    to left,
+    rgba($red, 0.1),
+    rgba($white, 0.5),
+  );
+  color: $text;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  align-items: center;
+  article{
+    flex: 0 0 30%;
+    text-align: center;
+    @media (max-width: 768px){
+      flex: 0 0 100%;
+      margin-bottom: 20px;
+    }
+    h4{
+      font-weight: 600;
+    }
+    i{
+      font-size: 10rem; 
+    }
+  }
+}
+
+.bottom-bar{
+  background:linear-gradient(
+    to right,
+    rgba($red, 0.1),
+    rgba($white, 0.5),
+  );
+  text-align: center;
+  color: $white;
+}
